@@ -1,13 +1,16 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule, ModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  isModalOpen = false;
   title = 'angular-buttons';
   private colors = ['black', 'red', 'green', 'blue'];
   private currentColorIndex = 0;
@@ -40,5 +43,9 @@ export class AppComponent {
     if (this.currentColorIndex >= this.colors.length) this.currentColorIndex = 0;
     element.style.color = this.colors[this.currentColorIndex];
   }
+
+  toggleModal() {
+    this.isModalOpen = !this.isModalOpen;
+  } 
 }
 

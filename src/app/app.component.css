@@ -110,6 +110,7 @@ main {
     line-height: 1.4rem;
     letter-spacing: -0.00875rem;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .pill:hover {
