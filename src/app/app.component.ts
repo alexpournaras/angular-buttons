@@ -19,5 +19,17 @@ export class AppComponent {
     const speech = new SpeechSynthesisUtterance(`${hello}. ${congrats}`);
     window.speechSynthesis.speak(speech);
   }
+
+  increaseTextSize() {
+    const element = this.congratsText.nativeElement;
+    const currentSize = parseFloat(window.getComputedStyle(element).fontSize);
+    element.style.fontSize = `${currentSize * 1.1}px`;
+  }
+
+  decreaseTextSize() {
+    const element = this.helloText.nativeElement;
+    const currentSize = parseFloat(window.getComputedStyle(element).fontSize);
+    element.style.fontSize = `${currentSize * 0.9}px`;
+  }
 }
 
