@@ -1,5 +1,46 @@
 <div class="modal" (click)="onClose()">
   <div class="modal-content" (click)="$event.stopPropagation()">
-    <p>Modal Content</p>
+    <p>Change the style of the button with the options below.</p>
+    <div class="style-options">
+        <div class="option-row">
+            <label>Background Color:</label>
+            <select [(ngModel)]="selectedBackgroundColor" (change)="updateButtonStyle()">
+              <option *ngFor="let option of backgroundColor" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+        <div class="option-row">
+            <label>Text Color:</label>
+            <select [(ngModel)]="selectedTextColor" (change)="updateButtonStyle()">
+              <option *ngFor="let option of textColor" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+        <div class="option-row">
+            <label>Text Size:</label>
+            <select [(ngModel)]="selectedTextSize" (change)="updateButtonStyle()">
+              <option *ngFor="let option of textSize" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+        <div class="option-row">
+            <label>Border Color:</label>
+            <select [(ngModel)]="selectedBorderColor" (change)="updateButtonStyle()">
+              <option *ngFor="let option of borderColor" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+        <div class="option-row">
+            <label>Border Size:</label>
+            <select [(ngModel)]="selectedBorderSize" (change)="updateButtonStyle()">
+              <option *ngFor="let option of borderSize" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+        <div class="option-row">
+            <label>Border Radius:</label>
+            <select [(ngModel)]="selectedBorderRadius" (change)="updateButtonStyle()">
+              <option *ngFor="let option of borderRadius" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+    </div>
+    <button class="styled-button" [ngStyle]="buttonStyle">
+      <span class="button-text">Styled Button</span>
+    </button>
   </div>
 </div> 
