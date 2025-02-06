@@ -11,37 +11,48 @@ import { ModalComponent } from './modal/modal.component';
 })
 export class AppComponent {
   isModalOpen = false;
-  title = 'angular-buttons';
   private colors = ['black', 'red', 'green', 'blue'];
   private currentColorIndex = 0;
 
-  @ViewChild('helloText', { static: true }) helloText!: ElementRef;
-  @ViewChild('congratsText', { static: true }) congratsText!: ElementRef;
+  @ViewChild('h1Text', { static: true }) h1Text!: ElementRef;
+  @ViewChild('paragraphText', { static: true }) paragraphText!: ElementRef;
 
   textToSpeech() {
-    const hello = this.helloText.nativeElement.textContent;
-    const congrats = this.congratsText.nativeElement.textContent;
-    const speech = new SpeechSynthesisUtterance(`${hello}. ${congrats}`);
+    const h1 = this.h1Text.nativeElement.textContent;
+    const p = this.paragraphText.nativeElement.textContent;
+    const speech = new SpeechSynthesisUtterance(`${h1}. ${p}`);
     window.speechSynthesis.speak(speech);
   }
 
   increaseTextSize() {
-    const element = this.congratsText.nativeElement;
-    const currentSize = parseFloat(window.getComputedStyle(element).fontSize);
-    element.style.fontSize = `${currentSize * 1.1}px`;
+    const h1Element = this.h1Text.nativeElement;
+    const h1CurrentSize = parseFloat(window.getComputedStyle(h1Element).fontSize);
+    h1Element.style.fontSize = `${h1CurrentSize * 1.1}px`;
+
+    const pElement = this.paragraphText.nativeElement;
+    const pCurrentSize = parseFloat(window.getComputedStyle(pElement).fontSize);
+    pElement.style.fontSize = `${pCurrentSize * 1.1}px`;
   }
 
   decreaseTextSize() {
-    const element = this.helloText.nativeElement;
-    const currentSize = parseFloat(window.getComputedStyle(element).fontSize);
-    element.style.fontSize = `${currentSize * 0.9}px`;
+    const h1Element = this.h1Text.nativeElement;
+    const h1CurrentSize = parseFloat(window.getComputedStyle(h1Element).fontSize);
+    h1Element.style.fontSize = `${h1CurrentSize * 0.9}px`;
+
+    const pElement = this.paragraphText.nativeElement;
+    const pCurrentSize = parseFloat(window.getComputedStyle(pElement).fontSize);
+    pElement.style.fontSize = `${pCurrentSize * 0.9}px`;
   }
 
   changeTextColor() {
-    const element = this.helloText.nativeElement;
+    const h1Element = this.h1Text.nativeElement;
+    const pElement = this.paragraphText.nativeElement;
+    
     this.currentColorIndex = this.currentColorIndex + 1;
     if (this.currentColorIndex >= this.colors.length) this.currentColorIndex = 0;
-    element.style.color = this.colors[this.currentColorIndex];
+
+    h1Element.style.color = this.colors[this.currentColorIndex];
+    pElement.style.color = this.colors[this.currentColorIndex];
   }
 
   toggleModal() {
