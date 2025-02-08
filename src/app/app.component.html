@@ -1,4 +1,4 @@
-<main class="main">
+<main class="main" aria-labelledby="main-heading">
   <div class="content">
     <div class="left-side">
       <svg
@@ -46,8 +46,8 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
-      <h1 #h1Text>Customize your text.</h1>
-      <p #paragraphText>
+      <h1 #h1Text aria-label="H1 Text">Customize your text.</h1>
+      <p #paragraphText aria-label="Paragraph Text">
         Customize this text appearance with the following options.
         We can hear the text and change its size and color.
         We can also open the modal and change the style of a button.
@@ -55,17 +55,15 @@
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
-      <div class="pill-group">
-        <button class="pill" (click)="textToSpeech()">Text to Speech</button>
-        <button class="pill" (click)="increaseTextSize()">Increase Text Size</button>
-        <button class="pill" (click)="decreaseTextSize()">Decrease Text Size</button>
-        <button class="pill" (click)="changeTextColor()">Change Text Color</button>
-        <button class="pill" (click)="toggleModal()">Open Modal</button>
+      <div class="pill-group" role="group" aria-label="Text customization options">
+        <button class="pill" (click)="textToSpeech()" aria-label="Convert text to speech">Text to Speech</button>
+        <button class="pill" (click)="increaseTextSize()" aria-label="Increase text size">Increase Text Size</button>
+        <button class="pill" (click)="decreaseTextSize()" aria-label="Decrease text size">Decrease Text Size</button>
+        <button class="pill" (click)="changeTextColor()" aria-label="Change text color">Change Text Color</button>
+        <button class="pill" (click)="toggleModal()" aria-label="Open modal">Open Modal</button>
       </div>
     </div>
   </div>
 </main>
 
-<router-outlet />
-
-<app-modal *ngIf="isModalOpen" (close)="toggleModal()"></app-modal>
+<app-modal *ngIf="isModalOpen" (close)="toggleModal()" aria-label="Modal component"></app-modal>

@@ -1,11 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, ModalComponent],
+  imports: [CommonModule, ModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
